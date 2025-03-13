@@ -1,0 +1,43 @@
+{
+  "name": "astro4.0-starter",
+  "description": "front-end development environment.",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "npx astro dev",
+    "start": "npx astro dev",
+    "build": "astro check && astro build && prettier --write ./public/**/*.html --ignore-path .prettierignore",
+    "preview": "npx astro preview",
+    "astro": "astro",
+    "prettier": "prettier --write 'src/**/*.{ts,js,astro,css,scss}'",
+    "clean": "rimraf public .astro node_modules",
+    "postbuild": "npm run js && npm run prettier",
+    "js": "vite build"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/node": "^8.3.4",
+    "@playform/compress": "^0.1.6",
+    "astro": "^4.6.3",
+    "astro-icon": "^1.1.0",
+    "astro-relative-links": "^0.4.0",
+    "fs-extra": "^11.2.0",
+    "path": "^0.12.7",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.13.0",
+    "prettier-plugin-tailwindcss": "^0.5.14",
+    "rimraf": "^5.0.5"
+  },
+  "dependencies": {
+    "@astrojs/ts-plugin": "^1.10.4",
+    "astro-html-beautifier": "^1.0.4",
+    "motion": "^11.11.17",
+    "octokit": "^4.0.2",
+    "sass": "^1.65.1",
+    "sass-loader": "^13.0.0",
+    "sharp": "^0.33.3",
+    "style-loader": "^4.0.0",
+    "typescript": "^5.6.3",
+    "vite-plugin-static-copy": "^2.1.0"
+  }
+}

@@ -1,0 +1,37 @@
+---
+import Layout from "@layouts/layout-default.astro";
+import Header from "@layouts/header.astro";
+import Footer from "@layouts/footer.astro";
+
+// ページ毎にmetaを変更したい場合↓
+// <Layout title="" description="" keywords="" ogp="">
+---
+
+<Layout>
+  <Header />
+  <main class="l-main p-main">
+    <h1>
+      Astro Starter kit 2025.<br />
+      <span>from takayama@nanomedia.jp</span>
+    </h1>
+  </main>
+  <Footer />
+</Layout>
+
+<style lang="scss">
+  h1 {
+    font-size: fn-rem(20);
+    font-weight: $font-weight-bold;
+    line-height: 1;
+    padding: 16px;
+    @include mq-up(md) {
+      font-size: fn-rem(40);
+    }
+    span {
+      font-size: fn-rem(12);
+      @include mq-up(md) {
+        font-size: fn-rem(18);
+      }
+    }
+  }
+</style>
