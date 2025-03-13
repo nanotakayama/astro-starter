@@ -1,0 +1,62 @@
+---
+import "@styles/_app.scss";
+import Favicon from "@site/favicon.astro";
+const isDev = import.meta.env.MODE === "development";
+
+// meta設定
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  ogp?: string;
+  site?: string;
+}
+const {
+  title = "astro-starter",
+  description = "astro-starter developer tool.",
+  keywords = "keyword,keyword,keyword",
+  site = "https://astro-starter.com/",
+  ogp = "https://astro-starter.com/assets/images/opg.jpg",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="jp">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <Favicon />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:site_name" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogp} />
+    <meta property="og:url" content={site} />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:title" />
+    <meta property="twitter:description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="l-wrapper">
+      <slot />
+    </div>
+    {
+      isDev ? (
+        <script type="module" src="src/assets/scripts/app.js" />
+      ) : (
+        <script src="./assets/scripts/app.js" />
+      )
+    }
+  </body>
+</html>
